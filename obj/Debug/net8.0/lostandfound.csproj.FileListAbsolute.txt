@@ -31,3 +31,4 @@ C:\Users\Monica\source\repos\lostandfound\lostandfound\obj\Debug\net8.0\refint\l
 C:\Users\Monica\source\repos\lostandfound\lostandfound\obj\Debug\net8.0\lostandfound.pdb
 C:\Users\Monica\source\repos\lostandfound\lostandfound\obj\Debug\net8.0\lostandfound.genruntimeconfig.cache
 C:\Users\Monica\source\repos\lostandfound\lostandfound\obj\Debug\net8.0\ref\lostandfound.dll
+C:\Users\Monica\source\repos\lostandfound\lostandfound\obj\Debug\net8.0\lostandfound.sourcelink.json
