@@ -1,0 +1,20 @@
+# Use the .NET SDK to build the app
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy project file and restore dependencies
+COPY ["lostandfound.csproj", "."]
+RUN dotnet restore
+
+# Copy everything else and build
+COPY . .
+RUN dotnet publish -c Release -o /app
+
+# Use the runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+WORKDIR /app
+COPY --from=build /app .
+
+# Expose the port and set the entry point
+EXPOSE 80
+ENTRYPOINT ["dotnet", "lostandfound.dll"]
