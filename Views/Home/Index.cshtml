@@ -1,53 +1,64 @@
 ﻿@model LostAndFound.Models.HomeViewModel
 @{
-    ViewData["Title"] = "Lost & Found";
+    ViewData["Title"] = "Campus Lost & Found | LostAndFound";
 }
 
 <!-- Hero Section -->
 <section class="hero-section">
-    <div class="container text-center">
-        <h1 class="display-4 fw-bold mb-4">Find What You've Lost, Return What You've Found</h1>
-        <p class="lead mb-5">A centralized platform for students and staff.</p>
-        <div class="d-flex gap-3 justify-content-center flex-wrap">
-            <a class="btn btn-primary btn-lg px-4" asp-controller="Auth" asp-action="Register">Get Started</a>
-            <a class="btn btn-outline-light btn-lg px-4" href="#how-it-works">Learn More</a>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 hero-content">
+                <h1 class="display-4 fw-bold mb-4">Campus Lost & Found</h1>
+                <p class="lead mb-5">A secure, centralized platform for students and staff to report, search, and recover lost items with confidence and efficiency.</p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a class="btn btn-primary btn-lg px-4 py-2" asp-controller="Auth" asp-action="Register">
+                        Report an Item
+                    </a>
+                    <a class="btn btn-outline-light btn-lg px-4 py-2" href="#how-it-works">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <!-- Optional: Add a professional illustration or image here -->
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Features Section -->
-<section id="features" class="py-5 bg-light">
+<section id="features" class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold text-dark mb-3">Why Use Our Platform?</h2>
-            <p class="lead text-muted">Designed specifically for Students community with security and ease of use in mind.</p>
+            <h2 class="section-title display-5">Secure & Efficient Recovery</h2>
+            <p class="section-subtitle">Designed specifically for academic environments with privacy and security as priorities.</p>
         </div>
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="card feature-card h-100 text-center p-4">
-                    <div class="card-body">
-                        <div class="fs-1 mb-3">📝</div>
-                        <h4 class="card-title">Easy Reporting</h4>
-                        <p class="card-text">Quickly report lost or found items with our simple forms. Add photos and detailed descriptions to increase recovery chances.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-list"></i>
                     </div>
+                    <h4 class="fw-semibold mb-3">Item Reporting</h4>
+                    <p class="text-muted">Quickly document lost or found items with detailed descriptions, categories, and optional photographic evidence.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card feature-card h-100 text-center p-4">
-                    <div class="card-body">
-                        <div class="fs-1 mb-3">🔍</div>
-                        <h4 class="card-title">Smart Search</h4>
-                        <p class="card-text">Filter items by category, location, or keywords. Our matching algorithm suggests potential matches automatically.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
                     </div>
+                    <h4 class="fw-semibold mb-3">Advanced Search</h4>
+                    <p class="text-muted">Filter items by category, location, date, or specific keywords with our intelligent matching system.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card feature-card h-100 text-center p-4">
-                    <div class="card-body">
-                        <div class="fs-1 mb-3">🛡️</div>
-                        <h4 class="card-title">Secure Claims</h4>
-                        <p class="card-text">Verified claim process with ownership validation to ensure items return to their rightful owners.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
+                    <h4 class="fw-semibold mb-3">Verified Claims</h4>
+                    <p class="text-muted">Secure claim verification process ensures items are returned to their legitimate owners through proper validation.</p>
                 </div>
             </div>
         </div>
@@ -55,32 +66,32 @@
 </section>
 
 <!-- How It Works Section -->
-<section id="how-it-works" class="py-5">
+<section id="how-it-works" class="py-5 bg-light">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold text-dark mb-3">How It Works</h2>
-            <p class="lead text-muted">Simple steps to recover lost items or return found ones.</p>
+            <h2 class="section-title display-5">Simple Recovery Process</h2>
+            <p class="section-subtitle">Four straightforward steps to recover lost property or return found items.</p>
         </div>
         <div class="row g-4">
-            <div class="col-md-3 text-center">
+            <div class="col-lg-3 col-md-6 text-center">
                 <div class="step-number">1</div>
-                <h4>Register & Login</h4>
-                <p>Create an account using your Student email address for verification.</p>
+                <h5 class="fw-semibold mb-2">Account Verification</h5>
+                <p class="text-muted small">Register using your institutional email for secure access.</p>
             </div>
-            <div class="col-md-3 text-center">
+            <div class="col-lg-3 col-md-6 text-center">
                 <div class="step-number">2</div>
-                <h4>Report Item</h4>
-                <p>Fill out a simple form to report a lost or found item with details and photos.</p>
+                <h5 class="fw-semibold mb-2">Item Documentation</h5>
+                <p class="text-muted small">Report lost or found items with comprehensive details and optional images.</p>
             </div>
-            <div class="col-md-3 text-center">
+            <div class="col-lg-3 col-md-6 text-center">
                 <div class="step-number">3</div>
-                <h4>Search & Match</h4>
-                <p>Browse items or let our system automatically suggest potential matches.</p>
+                <h5 class="fw-semibold mb-2">Match Identification</h5>
+                <p class="text-muted small">Our system identifies potential matches and notifies relevant parties.</p>
             </div>
-            <div class="col-md-3 text-center">
+            <div class="col-lg-3 col-md-6 text-center">
                 <div class="step-number">4</div>
-                <h4>Claim & Verify</h4>
-                <p>Submit a claim with proof of ownership. Our admins verify before release.</p>
+                <h5 class="fw-semibold mb-2">Secure Transfer</h5>
+                <p class="text-muted small">Verified claims lead to secure item return with administrative oversight.</p>
             </div>
         </div>
     </div>
@@ -91,20 +102,28 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-md-3 mb-4">
-                <h3 class="display-4 fw-bold">@Model.ItemsRecovered+</h3>
-                <p class="lead">Items Recovered</p>
+                <div class="stat-item">
+                    <div class="stat-number">@Model.ItemsRecovered</div>
+                    <p class="text-muted">Items Recovered</p>
+                </div>
             </div>
             <div class="col-md-3 mb-4">
-                <h3 class="display-4 fw-bold">@Model.RegisteredUsers+</h3>
-                <p class="lead">Registered Users</p>
+                <div class="stat-item">
+                    <div class="stat-number">@Model.RegisteredUsers</div>
+                    <p class="text-muted">Community Members</p>
+                </div>
             </div>
             <div class="col-md-3 mb-4">
-                <h3 class="display-4 fw-bold">@Model.SuccessRate%</h3>
-                <p class="lead">Success Rate</p>
+                <div class="stat-item">
+                    <div class="stat-number">@Model.SuccessRate%</div>
+                    <p class="text-muted">Recovery Rate</p>
+                </div>
             </div>
             <div class="col-md-3 mb-4">
-                <h3 class="display-4 fw-bold">24/7</h3>
-                <p class="lead">Platform Access</p>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <p class="text-muted">Platform Availability</p>
+                </div>
             </div>
         </div>
     </div>
@@ -113,8 +132,10 @@
 <!-- CTA Section -->
 <section class="cta-section">
     <div class="container text-center">
-        <h2 class="display-5 fw-bold mb-4">Ready to Find Your Lost Items?</h2>
-        <p class="lead mb-4">Join the Student Lost & Found community today and make our campus a place where lost items don't stay lost.</p>
-        <a class="btn btn-light btn-lg px-5" asp-controller="Auth" asp-action="Register">Create Your Account</a>
+        <h2 class="display-5 fw-bold mb-3">Ready to Recover Your Property?</h2>
+        <p class="lead mb-4 opacity-75">Join your campus community in maintaining a secure and efficient lost property management system.</p>
+        <a class="btn btn-light btn-lg px-5 py-2 fw-semibold" asp-controller="Auth" asp-action="Register">
+            Begin Recovery Process
+        </a>
     </div>
 </section>

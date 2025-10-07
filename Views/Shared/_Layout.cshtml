@@ -3,209 +3,246 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] -Lost & Found</title>
+    <title>@ViewData["Title"] - LostAndFound</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/LostAndFound.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --success: #27ae60;
+            --primary: #1a365d;
+            --secondary: #2d3748;
+            --accent: #3182ce;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --border: #e2e8f0;
         }
 
-        /* Enhanced Navigation Styles */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        /* Professional Navigation */
+        .navbar {
+            background: #ffffff !important;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+        }
+
         .navbar-brand {
-            font-size: 1.8rem !important;
-            font-weight: 800 !important;
+            font-weight: 700;
+            color: var(--primary) !important;
+            font-size: 1.5rem;
         }
 
-        .navbar-nav .nav-link {
-            font-size: 1.1rem !important;
-            font-weight: 600 !important;
+        .nav-link {
+            font-weight: 500;
+            color: #4a5568 !important;
             padding: 0.5rem 1rem !important;
-            border-radius: 6px;
-            transition: all 0.3s ease;
+            transition: color 0.2s ease;
         }
 
-            .navbar-nav .nav-link:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-                transform: translateY(-2px);
+            .nav-link:hover {
+                color: var(--accent) !important;
             }
 
-        .navbar-dark.bg-primary {
-            background-color: var(--primary) !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        .btn-outline-primary {
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
-        .btn-lg {
-            padding: 0.75rem 1.5rem !important;
-            font-size: 1.1rem !important;
-        }
+            .btn-outline-primary:hover {
+                background-color: var(--accent);
+                color: white;
+            }
 
-        /* Make the navbar stick to top with shadow */
-        .navbar {
-            position: sticky !important;
-            top: 0;
-            z-index: 1030;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Larger navbar for better visibility */
-        .navbar-dark.py-3 {
-            padding-top: 1rem !important;
-            padding-bottom: 1rem !important;
+        .btn-primary {
+            background-color: var(--accent);
+            border-color: var(--accent);
         }
 
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
             color: white;
-            padding: 100px 0;
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
         }
 
+            .hero-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
+                background-size: cover;
+            }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Feature Cards */
         .feature-card {
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            height: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
         }
 
             .feature-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             }
 
-        .step-number {
+        .feature-icon {
             width: 60px;
             height: 60px;
-            background: var(--secondary);
+            background: #ebf8ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        /* Steps */
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 1.5rem;
+            font-weight: 600;
+            margin: 0 auto 1rem;
         }
 
+        /* Stats */
         .stats-section {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        /* CTA Section */
+        .cta-section {
             background: var(--primary);
             color: white;
             padding: 80px 0;
         }
 
-        .cta-section {
-            background: var(--secondary);
-            color: white;
-            padding: 80px 0;
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: #a0aec0;
         }
-
-        /* Footer responsive fixes */
-        .footer .row {
-            margin-left: 0;
-            margin-right: 0;
-        }
-
-        .footer .col-lg-4,
-        .footer .col-lg-3,
-        .footer .col-lg-5,
-        .footer .col-md-6,
-        .footer .col-md-12 {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-
-        /* Ensure proper text wrapping */
-        .footer p,
-        .footer li {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        /* Mobile-specific footer adjustments */
-        @@media (max-width: 768px) {
-            .footer .container {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-
-            .footer .col-md-6,
-            .footer .col-md-12 {
-                margin-bottom: 2rem;
-            }
 
             .footer h5 {
-                font-size: 1.1rem;
+                color: white;
+                font-weight: 600;
                 margin-bottom: 1rem;
             }
+
+            .footer a {
+                color: #a0aec0;
+                text-decoration: none;
+                transition: color 0.2s ease;
+            }
+
+                .footer a:hover {
+                    color: white;
+                }
+
+        /* Utility Classes */
+        .section-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
 
-        /* Mobile responsiveness improvements */
-        @@media (max-width: 991.98px) {
-            .navbar-nav {
-                text-align: center;
-                padding: 1rem 0;
+        .section-subtitle {
+            color: #718096;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Responsive */
+        @@media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0 60px;
             }
 
-            .nav-item {
-                margin: 0.5rem 0;
+            .feature-card {
+                padding: 2rem 1.5rem;
             }
 
-            .navbar-brand {
-                font-size: 1.5rem !important;
+            .stat-number {
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-3">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center fw-bold" asp-area="" asp-controller="Home" asp-action="Index">
-                    <span class="me-3 fs-2">🔍</span>
-                    Lost & Found
+                <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-search me-3 text-primary"></i>
+                    LostAndFound
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white fw-semibold fs-5" asp-area="" asp-controller="Home" asp-action="Index">
-                                <i class="fas fa-home me-2"></i>Home
-                            </a>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white fw-semibold fs-5" href="#features">
-                                <i class="fas fa-star me-2"></i>Features
-                            </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#features">Features</a>
                         </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white fw-semibold fs-5" href="#how-it-works">
-                                <i class="fas fa-play-circle me-2"></i>How It Works
-                            </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#how-it-works">How It Works</a>
                         </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white fw-semibold fs-5" asp-area="" asp-controller="Home" asp-action="About">
-                                <i class="fas fa-info-circle me-2"></i>About
-                            </a>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li>
                     </ul>
 
-                    <div class="d-flex align-items-center gap-3">
-                        <a class="btn btn-outline-light btn-lg fw-semibold px-4" asp-area="" asp-controller="Auth" asp-action="Login">
-                            <i class="fas fa-sign-in-alt me-2"></i>Login
+                    <div class="d-flex align-items-center gap-2">
+                        <a class="btn btn-outline-primary" asp-area="" asp-controller="Auth" asp-action="Login">
+                            Sign In
                         </a>
-                        <a class="btn btn-warning btn-lg fw-bold px-4 text-dark" asp-area="" asp-controller="Auth" asp-action="Register">
-                            <i class="fas fa-user-plus me-2"></i>Register
+                        <a class="btn btn-primary" asp-area="" asp-controller="Auth" asp-action="Register">
+                            Get Started
                         </a>
                     </div>
                 </div>
@@ -217,49 +254,54 @@
         @RenderBody()
     </div>
 
-    <footer class="border-top footer text-muted bg-dark text-light mt-5">
-        <div class="container py-5">
+    <footer class="footer py-5">
+        <div class="container">
             <div class="row">
-                <!-- Brand Column -->
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <h5 class="fw-bold mb-3">Lost & Found</h5>
-                    <p class="text-light">A centralized platform for Student and staff.</p>
+                    <h5>LostAndFound</h5>
+                    <p class="mb-4">A secure platform for campus communities to report and recover lost items with efficiency and trust.</p>
                 </div>
 
-                <!-- Quick Links Column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="fw-bold mb-3">Quick Links</h5>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a class="text-light text-decoration-none" href="#features">Features</a></li>
-                        <li class="mb-2"><a class="text-light text-decoration-none" href="#how-it-works">How It Works</a></li>
-                        <li class="mb-2"><a class="text-light text-decoration-none" asp-controller="Auth" asp-action="Login">Login</a></li>
-                        <li class="mb-2"><a class="text-light text-decoration-none" asp-controller="Auth" asp-action="Register">Register</a></li>
+                        <li class="mb-2"><a href="#features">Features</a></li>
+                        <li class="mb-2"><a href="#how-it-works">How It Works</a></li>
+                        <li class="mb-2"><a asp-controller="Auth" asp-action="Login">Sign In</a></li>
+                        <li class="mb-2"><a asp-controller="Auth" asp-action="Register">Register</a></li>
                     </ul>
                 </div>
 
-                <!-- Contact Column -->
-                <div class="col-lg-5 col-md-12 mb-4">
-                    <h5 class="fw-bold mb-3">Contact</h5>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Help Center</a></li>
+                        <li class="mb-2"><a href="#">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contact</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2">
                             <i class="fas fa-envelope me-2 text-primary"></i>
-                            Email: support@richfieldlostfound.edu
+                            support@lostandfound.edu
                         </li>
                         <li class="mb-2">
                             <i class="fas fa-phone me-2 text-primary"></i>
-                            Phone: (011) 555-2222
+                            (011) 123-4567
                         </li>
                         <li class="mb-2">
                             <i class="fas fa-map-marker-alt me-2 text-primary"></i>
-                            Campus: Richfield Main Building
+                            Campus Administration
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Copyright -->
-            <div class="text-center pt-4 border-top border-secondary">
-                <p class="mb-0">&copy; 2025 Lost & Found. All rights reserved.</p>
+            <div class="text-center pt-4 border-top border-gray-700">
+                <p class="mb-0">&copy; 2025 LostAndFound. All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lostandfound")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+46d6fd3fa29aa3100337b62baa20145ed7612a44")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f676a1d75383199343c9d37ccbd07c6957135c39")]
 [assembly: System.Reflection.AssemblyProductAttribute("lostandfound")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lostandfound")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
